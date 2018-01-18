@@ -1,24 +1,22 @@
 package com.concurrent.threadpool.userthreadpool;
 
+import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 public class TestThreadPoolExecutor {
-
 	
 	public static void main(String[] args) {
-		
 		ThreadPoolExecutor pool = new ThreadPoolExecutor(
-				2, 												//核心的线程数量
-				100, 											//最大的线程数量
-				10, 											//空闲数值 
-				TimeUnit.SECONDS, 								//空闲时间单位
-				//new ArrayBlockingQueue<Runnable>(3)
-				new LinkedBlockingQueue<Runnable>()
-				
-				//new MyRejected()
-				); 			//队列容器
+				2, 												// 核心的线程数量
+				2, 											// 最大的线程数量
+				10, 											// 空闲数值
+				TimeUnit.SECONDS, 								// 空闲时间单位
+				new ArrayBlockingQueue<Runnable>(3),
+			//	new LinkedBlockingQueue<Runnable>()
+				new MyRejected()
+				); 			// 队列容器
 		
 		Task t1 = new Task(1, "任务" + 1);
 		Task t2 = new Task(2, "任务" + 2);
@@ -43,9 +41,7 @@ public class TestThreadPoolExecutor {
 			e.printStackTrace();
 		}
 		System.out.println(pool.getQueue().size());
-		
-							
-		
-		
+	    pool.shutdown();
 	}
+
 }
