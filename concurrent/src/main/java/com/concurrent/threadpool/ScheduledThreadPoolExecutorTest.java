@@ -24,6 +24,13 @@ public class ScheduledThreadPoolExecutorTest {
             public void run() {
                 System.out.println(System.nanoTime());
             }}, 1000, 2000, TimeUnit.MILLISECONDS);
+
+        exec.scheduleWithFixedDelay(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("===============================");
+            }
+        } , 1000 ,2000,TimeUnit.MILLISECONDS);
     }
 
 }
