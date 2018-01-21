@@ -2,7 +2,7 @@
 ## 线程池的5种状态：
 #### Running、ShutDown、Stop、Tidying、Terminated。
 ##### 线程池各个状态切换框架图：
-![image](https://note.youdao.com/favicon.ico)
+![image](https://github.com/Tojian/Thread_Concurrent/blob/master/images/state.jpeg)
 #### 1、RUNNING
 > (1) 状态说明：线程池处在RUNNING状态时，能够接收新任务，以及对已添加的任务进行处理。</p> 
 > (2) 状态切换：线程池的初始化状态是RUNNING。换句话说，线程池被一旦被创建，就处于RUNNING状态，并且线程池中的任务数为0！
