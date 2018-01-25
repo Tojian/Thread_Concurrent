@@ -1,5 +1,5 @@
 
-package com.comcurrent.executors;
+package com.concurrent.executors;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
